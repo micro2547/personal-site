@@ -23,6 +23,7 @@ const { title, description, image } = Astro.props
         <title>{title}</title>
 
         <meta name="title" content={title}>
+        <meta property="og:image" content="src/images/GJfn6VyacAAyE1M.png" />
         <meta name="description" content={description}>
         <meta name="theme-color" content="#b4befe">
         { image ? <meta name="og:image" content={image}> : ""}
