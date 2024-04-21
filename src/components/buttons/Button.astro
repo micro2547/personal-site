@@ -1,0 +1,47 @@
+---
+import type { ImportedImage } from './Buttons.astro'
+
+export interface Props {
+    image: ImportedImage
+}
+
+const {image} = Astro.props
+
+const WrapperElement = image.url ? "a" : "div"
+
+---
+<style lang="scss">
+    .button {
+        transition-duration: 100ms;
+        margin:0;
+        box-shadow: 0 0 0px var(--backgroundColorTransparent);
+        transition-property: box-shadow, transform;
+
+        &:hover {
+            transform: scale(115%);
+            background: var(--backgroundColorTransparent);
+            box-shadow: 0 0 15px #999;
+
+            @media (prefers-reduced-motion) {
+                transform: none;
+            }
+        }
+    }
+
+    img {
+        display:block;
+    }
+</style>
+<WrapperElement href={image.url} target="_blank">
+    <img 
+        class="button"
+        src={
+            ('directUrl' in image 
+            ? image.directUrl 
+            : image.src) 
+            || `/gifBtns/${image.basename}.gif`
+        }
+        alt={image.alt}
+        width="88" height="31"
+    >
+</WrapperElement>

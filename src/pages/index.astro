@@ -1,0 +1,138 @@
+---
+// this is your frontmatter
+// here you can only write pure js, no jsx expressions
+// ❌ const paragraph = <p></p>
+// you can use shit from here in your component's content
+
+import { Picture } from "astro:assets";
+import puzzlePiece from "@fluentui/svg-icons/icons/puzzle_piece_16_filled.svg?raw"
+import Page from "../layouts/Page.astro";
+import * as simple from "simple-icons";
+import pfp from "../images/pfp.png";
+import SocialList from "../components/SocialList.astro"
+import Buttons from "../components/buttons/Buttons.astro"
+
+---
+
+
+<style lang="scss" is:global>
+    main {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .pfpContainer {
+        flex: 1 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & > * {
+            flex: 0 0;
+        }
+
+        & > address {
+            width: 100%;
+            //max-width: 350px;
+        }
+
+        #pfp {
+            --pfp-size: 200px;
+
+            width: var(--pfp-size);
+            height: auto;
+            aspect-ratio: 1 / 1;
+            border-radius: var(--pfp-size);
+            border: 5px solid var(--acc);
+            box-shadow: 0 0 10px var(--acc); // glow!!! :3
+        }
+
+        address {
+            margin-top: 15px;
+        }
+    }
+
+    .mainContent {
+        flex: 1 1 400px;
+    }
+</style>
+
+<Page title="micro's shitty website" description="">
+
+    <div class="pfpContainer">
+        <Picture 
+            id="pfp"
+            src={pfp}
+            formats={['avif','webp']}
+            alt="profile picture (put some text for people with screen readers micro)"
+        />
+        <address>
+            <SocialList socials={[
+                {
+                    url: "https://discord.com/users/849151053714554921",
+                    icon: simple.siDiscord.svg,
+                    color: "var(--blu)"
+                },
+                {
+                    url: "https://youtube.com/@6d696",
+                    icon: simple.siYoutube.svg,
+                    color: "var(--red)"
+                },
+                {
+                    url: "https://steamcommunity.com/id/micro2547/",
+                    icon: simple.siSteam.svg,
+                    color: "var(--blu)"
+                },
+                {
+                    url: "https://twitter.com/6d6963726f2e",
+                    icon: simple.siX.svg,
+                    color: "var(--blu)"
+                },
+                {
+                    url: "https://open.spotify.com/user/4ge270dcfy7hj1bkkf4uk0ovp?si=fa829149191a4712",
+                    icon: simple.siSpotify.svg,
+                    color: "var(--grn)"
+                },
+                {
+                    url: "https://twitch.tv/mic_woo",
+                    icon: simple.siTwitch.svg,
+                    color: "var(--mve)"
+                },
+                {
+                    url: "https://www.reddit.com/user/microdrew2",
+                    icon: simple.siReddit.svg,
+                    color: "var(--pch)"
+                },
+                {
+                    url: "https://github.com/micro2547",
+                    icon: simple.siGithub.svg
+                },
+                {
+                    url: "https://namemc.com/profile/mic_woo.1",
+                    icon: simple.siNamemc.svg
+                },
+                {
+                    url: "https://www.last.fm/user/micro_bmp",
+                    icon: simple.siLastdotfm.svg,
+                    color: "var(--red)"
+                }
+            ]} />
+        </address>
+    </div>
+
+    <div class="mainContent">
+        <h1><em>hiii!</em></h1>
+        <p>
+            im micro, or also known as 6d69 on some places on the internet.
+            my pronouns are <a href="https://en.pronouns.page/@micro2547"><Fragment set:html={simple.siPronounsdotpage.svg} />&thinsp;he/they</a>,
+            i'm from the 🇺🇸&thinsp;united states, and i'm
+            <Fragment set:html={puzzlePiece} />&thinsp;autistic (diagnosed).</p>
+        <p>if you ever need to talk or contact me, you can use the links under my profile picture!</p>
+
+        <Buttons />
+    </div>
+
+</Page>

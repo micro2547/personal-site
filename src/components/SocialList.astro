@@ -1,0 +1,63 @@
+---
+
+export interface Props {
+    socials: {url?: string, icon: string, color?: string}[]
+}
+
+const {socials} = Astro.props
+---
+<style lang="scss">
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        cursor: default;
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        flex-wrap: wrap;
+        
+        & a {
+            text-decoration: none;
+            transition-duration: 200ms;
+            color: var(--st0) !important;
+            --iconColor: var(--acc);
+            display: flex; // makes the li height the same as the svg heigh t
+            &[href="javascript:void(0)"] {
+                cursor:default;
+            }
+            &:hover, &:focus-visible {
+                color: var(--iconColor) !important;
+                transform: scale(115%);
+            }
+            & > svg {
+                width: 1em;
+                aspect-ratio: 1 / 1;
+            }
+        }
+    
+        & li {
+            font-size: x-large;
+            flex: 0 0 1em;
+        }
+
+        @media (max-width: 650px) {
+            gap: 0.75em;
+            li {
+                font-size: xx-large;
+            }
+        }
+    }
+</style>
+<ul>
+    {
+        socials.map(obj => 
+            <li>
+                <a href={obj.url} rel="me" style={obj.color ? `--iconColor: ${obj.color};` : ""} target="_blank">
+                    <Fragment set:html={obj.icon} />
+                </a>
+            </li>
+        )
+    }
+</ul>

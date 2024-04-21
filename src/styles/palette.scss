@@ -1,0 +1,63 @@
+:root {
+    /* The rainbow 
+       It's gay, like Micro. */
+
+    --rosewater: #f5e0dc;
+    --flamingo: #f2cdcd;
+    --pink: #f5c2e7;
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --peach: #fab387;
+    --yellow: #f9e2af;
+    --green: #a6e3a1;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+    --sapphire: #74c7ec;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+
+    // Shortcodes
+    
+    --rsw: var(--rosewater);
+    --flm: var(--flamingo);
+    // red is short
+    --mrn: var(--maroon);
+    --pch: var(--peach);
+    --ylw: var(--yellow);
+    --grn: var(--green);
+    --t-l: var(--teal);
+    // sky is short
+    --sph: var(--sapphire);
+    --blu: var(--blue);
+    --ldr: var(--lavender);
+
+    // Favorite color
+
+    --accent: var(--lavender);
+    --acc: var(--accent);
+
+    // Text
+
+    --txt: #cdd6f4;
+    --st1: #bac2de;
+    --st0: #a6adc8;
+
+    // Overlay
+
+    --ol2: #9399b2;
+    --ol1: #7f849c;
+    --ol0: #6c7086;
+
+    // Surface
+
+    --sf2: #585b70;
+    --sf1: #45475a;
+    --sf0: #313244;
+
+    // Base
+
+    --bse: #1e1e2e;
+    --mtl: #181825;
+    --cst: #11111b;
+}

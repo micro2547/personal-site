@@ -1,0 +1,101 @@
+---
+import Button from "./Button.astro"
+import type { ImageMetadata } from 'astro';
+
+/*
+    This right here is what you call pure genius.
+
+    - import all in images
+    - map to `[ route, module().default ]`
+    - group into an object where the key is what's inbetween `./images/` and `.*` and the value is an array containing the `[ route, module().default ]` arrays
+    - convert `module().default` into an `Object.entries()` array
+    - flatMap all of the `Object.entries(module().default)`s along with the basename
+    - combine all that into one object
+    
+    Basically: import everything in ./images,
+    and combine everything with the same basename into one object
+*/
+
+let groupBy = Object.groupBy || function<K extends PropertyKey, T>(items: Array<T>, keySelector: (item: T, index: number) => K): Partial<Record<K, T[]>> {
+    let newObj = {} as Record<K, T[]>
+
+    items.forEach((v, x) => {
+        let key = keySelector(v,x)
+        newObj[key] = [...(newObj[key] || [] as T[]), v]
+    })
+
+    return newObj
+}
+export interface Metadata {
+    alt?: string,
+    url?: string,
+    order?: number,
+    basename: string
+}
+
+export type ImportedImage = (ImageMetadata & Metadata) | ({directUrl: string} & Metadata)
+
+const images =
+    (Object.entries(
+        groupBy(
+            (await Promise.all(
+                Object.entries(import.meta.glob("./images/*"))
+                    .map(async ([key, prom]) => [key, (await prom() as any)?.default])
+            )),
+            ([name, obj]) => name.match(/.\/images\/(.*)\..*/)[1]
+        )
+    ).map(([k, arrays]) => 
+        Object.fromEntries([
+            ...arrays.flatMap(array => Object.entries(array[1])), 
+            ["basename", k]
+        ])
+    ) as unknown as ImportedImage[])
+    .sort((a,b) => (a.order??100)-(b.order??100))
+
+---
+
+<style lang="scss">
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+</style>
+
+<section id="buttons" class="insignificant">
+    <h2 class="sectionDenoter">buttons!!!</h2>
+    <div>
+        {
+            images.map((image) => <Button image={image} />)
+        }
+    </div>
+    <script>
+        // small amount of js to control the
+        // tilt effect
+        if (!window.matchMedia('(hover: none)').matches && !window.matchMedia('(prefers-reduced-motion)').matches)
+            Array.from(document
+                .getElementById("buttons")
+                .getElementsByClassName("button"))
+                .forEach((e: HTMLElement) => {
+                    let startEffect = (ev: MouseEvent) => {
+                        let yP = 1-(ev.offsetY/31*2)
+                        let xP = -1+(ev.offsetX/88*2)
+                        e.style.transform =
+                            "scale(115%)"
+                            + ` rotate3d(${yP.toFixed(2)}, ${xP.toFixed(2)},0,20deg)`
+                            + ` translate(${3*xP}px,${-5*yP}px)`;
+                        e.style.boxShadow = `${(-3*xP).toFixed(2)}px ${(5*yP).toFixed(2)}px 10px #999`
+                    }
+                    e.addEventListener('mouseover', startEffect)
+                    e.addEventListener('mousemove', startEffect)
+                    e.addEventListener('mouseleave', () => {
+                        e.style.transform = ""
+                        e.style.boxShadow = ""
+                    })
+                })
+    </script>
+    <br>
+</section>

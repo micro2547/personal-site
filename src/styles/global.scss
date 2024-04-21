@@ -1,0 +1,85 @@
+@use "palette.scss";
+
+@font-face {
+    font-family: "Monaspace Argon";
+    src: url("/MonaspaceArgon.ttf");
+}
+
+body {
+    font-family: 'Monaspace Argon', sans-serif;
+    background-color: var(--cst);
+    color: var(--txt);
+}
+
+main {
+    
+    // hey, so, micro:
+    // your palette is in styles/palette.scss
+    // and you can reference those colors using
+    // var(--color)
+    // also, fyi, for hex codes, you just paste them in
+    // background-color: #1E1E2E;
+    // rgba is only if you want to do r, g, b, a
+    // 
+    background-color: #1e1e2eaa;
+    backdrop-filter: blur(15px);
+    text-align: left;
+    max-width: 900px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+
+}
+
+.mainContent {
+    & > :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1 {
+    margin: 0.5em 0;
+    &::before {
+        content: "# ";
+        color: var(--st0);
+    }
+}
+
+h2 {
+    margin: 0.5em 0;
+    &::before {
+        content: "## ";
+        color: var(--st0);
+    }
+}
+
+svg {
+    fill: currentColor;
+}
+
+p svg {
+    height: 1em;
+    vertical-align: middle;
+}
+
+p a {
+    color: var(--st1);
+}
+
+em {
+    font-style: oblique 12deg;
+}
+
+#background {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
