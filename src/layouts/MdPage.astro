@@ -1,0 +1,17 @@
+---
+
+import Page, {type Props as PageProps} from './Page.astro'
+
+interface Props {
+    frontmatter: PageProps
+}
+
+const { frontmatter } = Astro.props
+
+---
+
+<Page {...frontmatter}>
+    <div class="mainContent">
+        <slot />
+    </div>
+</Page>

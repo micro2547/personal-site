@@ -48,6 +48,16 @@ import Buttons from "../components/buttons/Buttons.astro"
             border-radius: var(--pfp-size);
             border: 5px solid var(--acc);
             box-shadow: 0 0 10px var(--acc); // glow!!! :3
+            transition-duration: 200ms;
+
+            &:hover {
+                --pfp-size: 220px;
+            }
+
+            &:active {
+                --pfp-size: 200px;
+            }
+            cursor: pointer;
         }
 
         address {

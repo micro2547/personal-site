@@ -170,8 +170,11 @@ nav {
         }
         >.navBtns {
             flex: 0 0;
+            cursor: default;
+            text-wrap: nowrap;
             >a {
                 font-style: oblique 12deg;
+                
                 &:hover {
                     font-style: normal;
                 }

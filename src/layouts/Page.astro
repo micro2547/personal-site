@@ -5,12 +5,13 @@ import Firewatch from "../images/Firewatch.jpg";
 import "../styles/global.scss";
 
 
-interface Props {
+export interface Props {
     title: string,
     description: string
+    image?: string
 }
 
-const { title, description } = Astro.props
+const { title, description, image } = Astro.props
 
 ---
 <!DOCTYPE html>
@@ -23,6 +24,8 @@ const { title, description } = Astro.props
 
         <meta name="title" content={title}>
         <meta name="description" content={description}>
+        <meta name="theme-color" content="#b4befe">
+        { image ? <meta name="og:image" content={image}> : ""}
     </head>
     <body>
         <Picture id="background" src={Firewatch} formats={['avif','webp']} alt="" />
@@ -34,6 +37,7 @@ const { title, description } = Astro.props
                 <h1><a href="/">micro</a></h1>
                 <div class="navBtns">
                     <a href="/setup">setup</a>
+                    <a href="/extra">extra</a>
                 </div>
             </div>
         </nav>
