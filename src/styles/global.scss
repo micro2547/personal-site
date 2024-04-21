@@ -9,6 +9,7 @@ body {
     font-family: 'Monaspace Argon', sans-serif;
     background-color: var(--cst);
     color: var(--txt);
+    margin: 0;
 }
 
 main {
@@ -26,9 +27,8 @@ main {
     text-align: left;
     max-width: 900px;
     padding: 20px;
-    margin: auto;
+    margin: 10px auto 50px auto; // 10px margin + 20px height +
     border-radius: 10px;
-
 }
 
 .mainContent {
@@ -53,6 +53,14 @@ h2 {
     margin: 0.5em 0;
     &::before {
         content: "## ";
+        color: var(--st0);
+    }
+}
+
+h3 {
+    margin: 0.5em 0;
+    &::before {
+        content: "### ";
         color: var(--st0);
     }
 }
@@ -82,4 +90,92 @@ em {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+}
+
+li {
+    >::marker {
+        font-size: 1.25em;
+        color: var(--acc);
+    }
+}
+
+// i have no idea WHY this works it just does
+// thank you random stackoverflow answer
+// https://stackoverflow.com/questions/7698764/custom-bullet-symbol-for-li-elements-in-ul-that-is-a-regular-character-and
+ul:not(.socialList) {
+    list-style:none;
+    margin-left: 0;
+    padding-left: 20px;
+    > li {
+        padding-left: 1em;
+        text-indent: -2ch;
+        &::before {
+            content: "+";
+            padding-right: 10px;
+            height: 100%;
+            color: var(--acc);
+            text-shadow: 0px 0px 5px var(--acc);
+        }
+    }
+}
+
+@keyframes LittleHoverAnimation {
+    0% {
+        background: linear-gradient(to right, var(--txt), var(--red))
+    }
+    100% {
+        background: linear-gradient(to right, var(--txt) 20%, var(--red))
+    }
+}
+
+nav {
+    display: flex;
+    background: #31324456;
+    padding: 10px;
+    height: 20px;
+    position: fixed;
+
+    backdrop-filter: saturate(50%) blur(4px);
+    -webkit-backdrop-filter: saturate(50%) blur(4px);
+
+    left: 0px;
+    top: 100%;
+    transform: translateY(-100%);
+    width: calc(100% - 20px); // account for padding
+
+    justify-content: center;
+    >div {
+        height: 100%;
+        display: flex;
+        width: 100%;
+        max-width: 900px;
+        justify-content: space-between;
+        >h1 {
+            flex: 0 1;
+            margin: 0;
+            font-weight: 550;
+            &::before {all: unset} // remove the #
+        }
+        a {
+            color: var(--txt);
+            transition-duration: 200ms;
+            transition-property: color, font-weight, letter-spacing, margin-right, font-style;
+            text-decoration: none; // remove underline
+            &:hover {
+                color:var(--acc);
+                letter-spacing: 0.2em;
+                font-weight: 800;
+                margin-right: -0.2em; // counteract extra space left by letter-spacing
+            }
+        }
+        >.navBtns {
+            flex: 0 0;
+            >a {
+                font-style: oblique 12deg;
+                &:hover {
+                    font-style: normal;
+                }
+            }
+        }
+    }
 }

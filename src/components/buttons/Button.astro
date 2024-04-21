@@ -16,20 +16,26 @@ const WrapperElement = image.url ? "a" : "div"
         margin:0;
         box-shadow: 0 0 0px var(--backgroundColorTransparent);
         transition-property: box-shadow, transform;
+    }
 
-        &:hover {
-            transform: scale(115%);
-            background: var(--backgroundColorTransparent);
-            box-shadow: 0 0 15px #999;
+    button:hover, a:focus-visible > .button {
+        transform: scale(115%);
+        background: var(--backgroundColorTransparent);
+        box-shadow: 0 0 10px #999;
+        outline: 2px solid #ccc;
 
-            @media (prefers-reduced-motion) {
-                transform: none;
-            }
+        @media (prefers-reduced-motion) {
+            transform: none;
         }
     }
 
     img {
         display:block;
+        // https://88x31.kate.pet
+        image-rendering: auto;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: -webkit-optimize-contrast;
     }
 </style>
 <WrapperElement href={image.url} target="_blank">

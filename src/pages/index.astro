@@ -68,51 +68,59 @@ import Buttons from "../components/buttons/Buttons.astro"
             src={pfp}
             formats={['avif','webp']}
             alt="profile picture"
+            title="the fat ugly FUCK!!!"
         />
         <address>
             <SocialList socials={[
                 {
                     url: "https://discord.com/users/849151053714554921",
                     icon: simple.siDiscord.svg,
-                    color: "var(--blu)"
+                    color: "#5662f6"
                 },
                 {
                     url: "https://youtube.com/@6d696",
                     icon: simple.siYoutube.svg,
-                    color: "var(--red)"
+                    color: "#ff0000"
                 },
                 {
                     url: "https://steamcommunity.com/id/micro2547/",
                     icon: simple.siSteam.svg,
-                    color: "var(--blu)"
+                    color: "#046a9e"
                 },
                 {
                     url: "https://twitter.com/6d6963726f2e",
                     icon: simple.siX.svg,
-                    color: "var(--blu)"
+                    color: "var(--ctp-color)"
                 },
                 {
                     url: "https://open.spotify.com/user/4ge270dcfy7hj1bkkf4uk0ovp?si=fa829149191a4712",
                     icon: simple.siSpotify.svg,
-                    color: "var(--grn)"
+                    color: "#"+simple.siSpotify.hex
                 },
                 {
                     url: "https://twitch.tv/mic_woo",
                     icon: simple.siTwitch.svg,
-                    color: "var(--mve)"
+                    color: "#"+simple.siTwitch.hex
                 },
                 {
                     url: "https://www.reddit.com/user/microdrew2",
                     icon: simple.siReddit.svg,
-                    color: "var(--pch)"
+                    color: "#"+simple.siReddit.hex
                 },
                 {
                     url: "https://github.com/micro2547",
-                    icon: simple.siGithub.svg
+                    icon: simple.siGithub.svg,
+                    color: "var(--ctp-color)"
                 },
                 {
                     url: "https://namemc.com/profile/mic_woo.1",
-                    icon: simple.siNamemc.svg
+                    icon: simple.siNamemc.svg,
+                    color: "var(--ctp-color)"
+                },
+                {
+                    url: "https://www.roblox.com/users/1283399878/profile",
+                    icon: simple.siRoblox.svg,
+                    color: "#AA0000"
                 },
                 {
                     url: "https://www.last.fm/user/micro_bmp",
@@ -130,7 +138,16 @@ import Buttons from "../components/buttons/Buttons.astro"
             my pronouns are <a href="https://en.pronouns.page/@micro2547"><Fragment set:html={simple.siPronounsdotpage.svg} />&thinsp;he/they</a>,
             i'm from the 🇺🇸&thinsp;united states, and i'm
             <Fragment set:html={puzzlePiece} />&thinsp;autistic (diagnosed).</p>
-        <p>if you ever need to talk or contact me, you can use the links under my profile picture!</p>
+        <p>
+            i'm interested in
+            <ul>
+                <li>coding basic stuff</li>
+                <li>linux/unix</li>
+                <li>iOS jailbreaking</li>
+                <li>chromeOS unenrollment</li>
+            </ul>
+        </p>
+        <p>if you ever need to talk or contact me, you can use the links under my profile picture! i would be happy to talk to you!! ^^</p>
 
         <Buttons />
     </div>
