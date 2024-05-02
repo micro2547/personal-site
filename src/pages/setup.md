@@ -16,7 +16,6 @@ a lil list of all of my computers and stuff i use :3
 - ram: 32 GB
 
 ## laptop(s)
-at the moment, i don't have a main laptop i use but ill still list them here
 
 ### lenovo thinkpad t480s
 - os: tiny11 Pro & Arch Linux x86_64
