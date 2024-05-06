@@ -18,7 +18,7 @@ a lil list of all of my computers and stuff i use :3
 ## laptop(s)
 
 ### lenovo thinkpad t480s
-- os: tiny11 Pro & Arch Linux x86_64
+- os: Windows 10 IoT Enterprise LTSC & Arch Linux x86_64
 - mobo: LENOVO 20L8S62300
 - cpu: Intel Core i7-8650U
 - gpu: Intel UHD Graphics 620
@@ -41,4 +41,3 @@ a lil list of all of my computers and stuff i use :3
 ## other devices
 - iPhone 13
 - iPad Pro (12.9-inch) (3rd gen)
-- Lenovo IdeaPad Slim 3 Chromebook
