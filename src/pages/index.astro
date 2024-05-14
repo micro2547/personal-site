@@ -11,6 +11,7 @@ import * as simple from "simple-icons";
 import pfp from "../images/pfp.png";
 import SocialList from "../components/SocialList.astro"
 import Buttons from "../components/buttons/Buttons.astro"
+import Lastfm from "../components/LfmWidget.svelte"
 
 ---
 
@@ -66,18 +67,18 @@ import Buttons from "../components/buttons/Buttons.astro"
     }
 
     .mainContent {
-        flex: 1 1 400px;
+        flex: 1 1 350px;
     }
 </style>
 
-<Page title="micro's shitty website" description="">
+<Page title="micro's shitty website" description="balls">
 
     <div class="pfpContainer">
         <Picture 
             id="pfp"
             src={pfp}
-            formats={['avif','webp']}
-            alt="profile picture"
+            formats={['png','jpg']}
+            alt="ma profile picture silly"
             title="the fat ugly FUCK!!!"
         />
         <address>
@@ -139,6 +140,8 @@ import Buttons from "../components/buttons/Buttons.astro"
                 }
             ]} />
         </address>
+        <Lastfm client:load>
+        </Lastfm>
     </div>
 
     <div class="mainContent">

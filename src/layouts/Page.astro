@@ -1,7 +1,7 @@
 ---
 
 import { Picture } from "astro:assets";
-import Firewatch from "../images/Firewatch.jpg";
+import bg from "../images/bg.png";
 import "../styles/global.scss";
 
 
@@ -29,7 +29,7 @@ const { title, description, image } = Astro.props
         <meta name="theme-color" content="#b4befe">
     </head>
     <body>
-        <Picture id="background" src={Firewatch} formats={['avif','webp']} alt="" />
+        <Picture id="background" src={bg} formats={['png','jpg']} alt="" />
         <main>
             <slot />
         </main>

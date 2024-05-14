@@ -130,13 +130,11 @@ ul:not(.socialList) {
 
 nav {
     display: flex;
-    background: #31324456;
+    background-color: #1e1e2eaa;
+    backdrop-filter: blur(15px);
     padding: 10px;
     height: 20px;
     position: fixed;
-
-    backdrop-filter: saturate(50%) blur(4px);
-    -webkit-backdrop-filter: saturate(50%) blur(4px);
 
     left: 0px;
     top: 100%;

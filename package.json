@@ -12,11 +12,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type":"module",
   "dependencies": {
+    "@astrojs/svelte": "^5.4.0",
     "@fluentui/svg-icons": "^1.1.236",
     "astro": "^4.6.3",
     "sass": "^1.75.0",
     "simple-icons": "^11.13.0",
+    "svelte": "^4.2.17",
     "typescript": "^5.4.5"
   }
 }
