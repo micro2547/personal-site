@@ -18,7 +18,9 @@ a lil list of all of my computers and stuff i use :3
 ## laptop(s)
 
 ### lenovo thinkpad t480s
-- os: Windows 10 IoT Enterprise LTSC & Arch Linux x86_64
+- os: Arch Linux x86_64
+- de/wm: XFCE
+- terminal: xfce4-terminal
 - mobo: LENOVO 20L8S62300
 - cpu: Intel Core i7-8650U
 - gpu: Intel UHD Graphics 620
@@ -26,6 +28,8 @@ a lil list of all of my computers and stuff i use :3
 
 ### lenovo yoga 710-15IKB
 - os: Arch Linux x86_64
+- de/wm: Hyprland
+- terminal: alacritty
 - mobo: 80V5 Levono YOGA 710-15IKB
 - cpu: Intel Core i5-7200U
 - gpu: Intel HD Graphics 620
