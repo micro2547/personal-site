@@ -1,4 +1,4 @@
----
+f---
 // this is your frontmatter
 // here you can only write pure js, no jsx expressions
 // ❌ const paragraph = <p></p>
@@ -11,7 +11,6 @@ import * as simple from "simple-icons";
 import pfp from "../images/pfp.png";
 import SocialList from "../components/SocialList.astro"
 import Buttons from "../components/buttons/Buttons.astro"
-import Lastfm from "../components/LfmWidget.svelte"
 
 ---
 
@@ -135,8 +134,6 @@ import Lastfm from "../components/LfmWidget.svelte"
                 }
             ]} />
         </address>
-        <Lastfm client:load>
-        </Lastfm>
     </div>
 
     <div class="mainContent">
